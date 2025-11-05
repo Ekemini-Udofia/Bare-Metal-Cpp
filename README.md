@@ -59,5 +59,6 @@ continue
 
 * Ensure `arm-none-eabi-gcc` and `openocd` are installed and added to your system PATH.
 * The `.ld` linker script must match your STM32F030F4Px memory map.
+* If you dont wish to install all these but still wish to test it out, you can get the pre-built `.elf` at `build/build.elf` 
 
 ```
