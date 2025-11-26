@@ -15,13 +15,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Install ARM GCC toolchain
-      - name: Install ARM GCC
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y gcc-arm-none-eabi g++-arm-none-eabi binutils-arm-none-eabi
+      # 2. Install ARM GCC toolchain via Marketplace action
+      - name: arm-none-eabi-gcc
+        uses: fiam/arm-none-eabi-gcc@v1
+        with:
+          release: '9-2019-q4'   # ARM GCC release version
 
-      # 3. Create build directories
+      # 3. Prepare build folders
       - name: Prepare build folders
         run: mkdir -p build/obj
 
