@@ -2,16 +2,16 @@
 #define PERIPH_BASE (0x40000000UL)
 // Offset for AHB2 - Contains GPIOA
 #define AHB2PERIHP_OFFSET (0x08000000UL)
-// Base address for AHB1 
+// Base address for AHB1
 #define AHB2PERIHP_BASE (PERIPH_BASE + AHB2PERIHP_OFFSET)
-// Offset for GPIOA 
+// Offset for GPIOA
 #define GPIOA_OFFSET (0X0000UL)
-// Base address for GPIOA 
+// Base address for GPIOA
 #define GPIOA_BASE (AHB2PERIHP_BASE + GPIOA_OFFSET)
 
 // Offset for AHB1 - Contains RCC
 #define AHB1PERIHP_OFFSET (0x00020000UL)
-// Base address for AHB1 
+// Base address for AHB1
 #define AHB1PERIHP_BASE (PERIPH_BASE + AHB1PERIHP_OFFSET)
 // Offset for RCC
 #define RCC_OFFSET (0x00001000UL)
@@ -21,7 +21,9 @@
 // Define AHBENR offset
 #define RCC_AHBENR_OFFSET (0x14UL)
 // Define AHBENR address
-#define RCC_AHBENR (*(volatile unsigned int *)(RCC_BASE + RCC_AHBENR_OFFSET)) // GPIOA_EN is on bit 17
+#define RCC_AHBENR                       \
+  (*(volatile unsigned int *)(RCC_BASE + \
+                              RCC_AHBENR_OFFSET))  // GPIOA_EN is on bit 17
 
 // Define GPIOA_MODER offset
 #define MODER_OFFSET (0x0000UL)
@@ -38,18 +40,17 @@
 // Bit mask for GPIOA pin 4
 #define PIN5 (1U << 5)
 
-
 int main(void) {
   // Enable Clock Access to GPIOA
   RCC_AHBENR |= GPIOAEN;
 
   // Setting bit 9 of GPIOA_MODER to 0 and bit 8 to 1
-  GPIOA_MODER |= (1U << 8); // Bit 8 -> 1
-  GPIOA_MODER &= ~(1U << 9); // Bit 9 -> 0
+  GPIOA_MODER |= (1U << 8);   // Bit 8 -> 1
+  GPIOA_MODER &= ~(1U << 9);  // Bit 9 -> 0
 
   // Infinite loop to turn on  LED
-  while(1) {
-    GPIOA_ODR |= PIN5; // Toggle pin 4
+  while (1) {
+    GPIOA_ODR |= PIN5;  // Toggle pin 4
     for (int i = 0; i < 100000; ++i) {
       // Delay loop for blinking to be visible
     }
