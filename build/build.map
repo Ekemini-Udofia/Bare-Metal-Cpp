@@ -25,14 +25,14 @@ Discarded input sections
  .ARM.exidx     0x00000000       0x10 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
  .ARM.attributes
                 0x00000000       0x1b c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+ .text          0x00000000       0x14 build/obj/startup_stm32f030f4px.o
+ .data          0x00000000        0x0 build/obj/startup_stm32f030f4px.o
+ .bss           0x00000000        0x0 build/obj/startup_stm32f030f4px.o
  .text          0x00000000        0x0 build/obj/main.o
  .data          0x00000000        0x0 build/obj/main.o
  .bss           0x00000000        0x0 build/obj/main.o
  .ARM.extab.text.startup.main
                 0x00000000        0x0 build/obj/main.o
- .text          0x00000000       0x14 build/obj/startup_stm32f030f4px.o
- .data          0x00000000        0x0 build/obj/startup_stm32f030f4px.o
- .bss           0x00000000        0x0 build/obj/startup_stm32f030f4px.o
  .text          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-exit.o)
  .data          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-exit.o)
  .bss           0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-exit.o)
@@ -91,12 +91,12 @@ Linker script and memory map
 LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crti.o
 LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
 LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
-LOAD build/obj/main.o
-LOAD build/obj/startup_stm32f030f4px.o
 START GROUP
 LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libstdc++_nano.a
 LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libsupc++_nano.a
 END GROUP
+LOAD build/obj/startup_stm32f030f4px.o
+LOAD build/obj/main.o
 LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libstdc++_nano.a
 LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a
 LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a
@@ -132,49 +132,49 @@ LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc
  *(.text)
  .text          0x080000c0       0x48 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
  *(.text*)
- .text.startup.main
-                0x08000108       0x3c build/obj/main.o
-                0x08000108                main
  .text.Reset_Handler
-                0x08000144       0x50 build/obj/startup_stm32f030f4px.o
-                0x08000144                Reset_Handler
+                0x08000108       0x50 build/obj/startup_stm32f030f4px.o
+                0x08000108                Reset_Handler
  .text.Default_Handler
-                0x08000194        0x2 build/obj/startup_stm32f030f4px.o
-                0x08000194                TIM1_CC_IRQHandler
-                0x08000194                HardFault_Handler
-                0x08000194                TIM6_IRQHandler
-                0x08000194                SysTick_Handler
-                0x08000194                PVD_IRQHandler
-                0x08000194                PendSV_Handler
-                0x08000194                NMI_Handler
-                0x08000194                I2C1_IRQHandler
-                0x08000194                SPI1_IRQHandler
-                0x08000194                EXTI2_3_IRQHandler
-                0x08000194                I2C2_IRQHandler
-                0x08000194                TIM17_IRQHandler
-                0x08000194                RTC_IRQHandler
-                0x08000194                TIM16_IRQHandler
-                0x08000194                TIM3_IRQHandler
-                0x08000194                EXTI4_15_IRQHandler
-                0x08000194                RCC_IRQHandler
-                0x08000194                Default_Handler
-                0x08000194                TIM14_IRQHandler
-                0x08000194                ADC_IRQHandler
-                0x08000194                DMA1_CH2_3_IRQHandler
-                0x08000194                TIM15_IRQHandler
-                0x08000194                EXTI0_1_IRQHandler
-                0x08000194                USB_IRQHandler
-                0x08000194                SPI2_IRQHandler
-                0x08000194                DMA1_CH1_IRQHandler
-                0x08000194                SVC_Handler
-                0x08000194                DMA1_CH4_5_IRQHandler
-                0x08000194                WWDG_IRQHandler
-                0x08000194                USART2_IRQHandler
-                0x08000194                FLASH_IRQHandler
-                0x08000194                USART1_IRQHandler
-                0x08000194                TIM1_BRK_UP_TRG_COM_IRQHandler
-                0x08000194                USART3_4_5_6_IRQHandler
- *fill*         0x08000196        0x2 
+                0x08000158        0x2 build/obj/startup_stm32f030f4px.o
+                0x08000158                TIM1_CC_IRQHandler
+                0x08000158                HardFault_Handler
+                0x08000158                TIM6_IRQHandler
+                0x08000158                SysTick_Handler
+                0x08000158                PVD_IRQHandler
+                0x08000158                PendSV_Handler
+                0x08000158                NMI_Handler
+                0x08000158                I2C1_IRQHandler
+                0x08000158                SPI1_IRQHandler
+                0x08000158                EXTI2_3_IRQHandler
+                0x08000158                I2C2_IRQHandler
+                0x08000158                TIM17_IRQHandler
+                0x08000158                RTC_IRQHandler
+                0x08000158                TIM16_IRQHandler
+                0x08000158                TIM3_IRQHandler
+                0x08000158                EXTI4_15_IRQHandler
+                0x08000158                RCC_IRQHandler
+                0x08000158                Default_Handler
+                0x08000158                TIM14_IRQHandler
+                0x08000158                ADC_IRQHandler
+                0x08000158                DMA1_CH2_3_IRQHandler
+                0x08000158                TIM15_IRQHandler
+                0x08000158                EXTI0_1_IRQHandler
+                0x08000158                USB_IRQHandler
+                0x08000158                SPI2_IRQHandler
+                0x08000158                DMA1_CH1_IRQHandler
+                0x08000158                SVC_Handler
+                0x08000158                DMA1_CH4_5_IRQHandler
+                0x08000158                WWDG_IRQHandler
+                0x08000158                USART2_IRQHandler
+                0x08000158                FLASH_IRQHandler
+                0x08000158                USART1_IRQHandler
+                0x08000158                TIM1_BRK_UP_TRG_COM_IRQHandler
+                0x08000158                USART3_4_5_6_IRQHandler
+ *fill*         0x0800015a        0x2 
+ .text.startup.main
+                0x0800015c       0x3c build/obj/main.o
+                0x0800015c                main
  .text.__libc_init_array
                 0x08000198       0x48 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-init.o)
                 0x08000198                __libc_init_array
@@ -303,14 +303,14 @@ LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc
  .ARM.attributes
                 0x0000001e       0x2c c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
  .ARM.attributes
-                0x0000004a       0x2c build/obj/main.o
+                0x0000004a       0x21 build/obj/startup_stm32f030f4px.o
  .ARM.attributes
-                0x00000076       0x21 build/obj/startup_stm32f030f4px.o
+                0x0000006b       0x2c build/obj/main.o
  .ARM.attributes
                 0x00000097       0x2c c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-init.o)
  .ARM.attributes
                 0x000000c3       0x1e c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtn.o
-OUTPUT(build/build.elf elf32-littlearm)
+OUTPUT(main.elf elf32-littlearm)
 LOAD linker stubs
 LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a
 LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a
