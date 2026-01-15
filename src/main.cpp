@@ -38,7 +38,7 @@
 // Bit mask for enabling GPIOA - Bit 17
 #define GPIOAEN (1U << 17)
 // Bit mask for GPIOA pin 4
-#define PIN5 (1U << 5)
+#define PIN4 (1U << 4)
 
 int main(void) {
   // Enable Clock Access to GPIOA
@@ -50,8 +50,8 @@ int main(void) {
 
   // Infinite loop to turn on  LED
   while (1) {
-    GPIOA_ODR |= PIN5;  // Toggle pin 4
-    for (int i = 0; i < 100000; ++i) {
+    GPIOA_ODR ^= PIN4;  // Toggle pin 4
+    for (int i = 0; i < 1000; ++i) {
       // Delay loop for blinking to be visible
     }
   }
